@@ -15,9 +15,14 @@ RUN apt install -y --no-install-recommends \
     python3-dev \
     python3-pip
 
+# For ARM64
+#RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
+#    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz \
+#    && tar xzf ./actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz
+
 RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
-    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz \
-    && tar xzf ./actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz
+    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
+    && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
 
 RUN chown -R docker ~docker && chown -R docker /home/docker/actions-runner/bin/installdependencies.sh
 
