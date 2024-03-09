@@ -1,4 +1,5 @@
 FROM ubuntu:22.04
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 ARG RUNNER_VERSION="2.314.1"
 ARG DEBIAN_FRONTEND=noninteractive
@@ -10,6 +11,7 @@ RUN apt install -y --no-install-recommends \
     build-essential \
     libssl-dev \
     libffi-dev \
+    libicu-dev \
     python3 \
     python3-venv \
     python3-dev \
